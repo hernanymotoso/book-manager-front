@@ -1,7 +1,7 @@
-<script lang="ts">
+<script>
   import '../app.css'
-
-  let { children } = $props()
 </script>
 
-{@render children()}
+<div class="min-h-screen bg-gray-900 text-white">
+  <slot />
+</div>
