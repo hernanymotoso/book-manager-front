@@ -17,6 +17,10 @@ export const actions = {
 }
 
 export const load: PageServerLoad = async () => {
+  try {
   const fetchedBooks = (await books.load()) || []
   return { fetchedBooks }
+  } catch (err: any) {
+    return { fetchedBooks: [], error: err?.message || 'Internal server error' }
+  }
 }
