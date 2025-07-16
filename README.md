@@ -27,7 +27,7 @@ git checkout developer
 
 2. Run the app:
 ```bash
-  yarn start
+  yarn dev
 ```
 
 The application will be available at `http://localhost:5173`.
