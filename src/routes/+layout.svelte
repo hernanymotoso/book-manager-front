@@ -1,5 +1,6 @@
 <script>
   import '../app.css'
+  import { Toaster } from 'svelte-french-toast'
 
   import { Header } from '$lib/components'
 </script>
@@ -8,3 +9,5 @@
   <Header />
   <slot />
 </div>
+
+<Toaster />

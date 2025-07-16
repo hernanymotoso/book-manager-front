@@ -2,6 +2,7 @@
   import { enhance } from '$app/forms'
   import type { SubmitFunction } from '@sveltejs/kit'
   import type { ActionData } from '../../../routes/dashboard/$types'
+  import toast from 'svelte-french-toast'
 
   import { Spinner } from '$lib/components'
   import { fly } from 'svelte/transition'
@@ -21,6 +22,9 @@
   }
 
   $: if (form?.success) handleClose()
+  $: if (form?.error) {
+    toast.error(form.error)
+  }
 </script>
 
 {#if isOpen}
