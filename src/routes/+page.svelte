@@ -3,7 +3,7 @@
   // @ts-nocheck
 
   import { enhance } from '$app/forms'
-  import { goto } from '$app/navigation'
+  import { goto, invalidateAll } from '$app/navigation'
   import { Wrapper } from '$lib/components'
   import { localStorageHelper, cookieHelpers } from '$lib/utils'
   import toast from 'svelte-french-toast'
@@ -13,7 +13,7 @@
   let success = ''
   let error = ''
 
-  function handleSignIn(event) {
+  async function handleSignIn(event) {
     event.preventDefault()
     error = ''
     success = ''
@@ -38,11 +38,13 @@
     success = 'SignIn successfully!'
     email = ''
     password = ''
+
+    await invalidateAll()
   }
 
   $: if (success) {
     toast.success(success)
-    setTimeout(() => goto('/dashboard'), 1200)
+    setTimeout(() => goto('/dashboard', { replaceState: true }), 1200)
   }
 </script>
 
