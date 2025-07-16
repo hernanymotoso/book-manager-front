@@ -1,38 +1,51 @@
-# sv
+# Book Manager Front-end
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+An application for book management. My first svelte app 
 
-## Creating a project
+## Getting Started
 
-If you're seeing this, you've probably already done this step. Congrats!
+### Prerequisites
 
+- Node v20.18.1
+- Yarn 1.22.22
+  
+### Installation
+
+1. Clone the repository (SSH):
 ```bash
-# create a new project in the current directory
-npx sv create
+git clone git@github.com:hernanymotoso/book-manager-front.git
+cd book-manager-front
+git fetch origin
+git checkout developer
+```
+### Running
 
-# create a new project in my-app
-npx sv create my-app
+1. Install the depentencies:
+```bash
+  yarn install
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
+2. Run the app:
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+  yarn start
 ```
 
-## Building
+The application will be available at `http://localhost:5173`.
 
-To create a production version of your app:
+## Features/Progress
+[Project Book Manager Front-end](https://github.com/users/hernanymotoso/projects/8)
 
-```bash
-npm run build
-```
 
-You can preview the production build with `npm run preview`.
+- ✅ Dashboard - load books
+- ✅ Create book
+- ✅ Real-time filter by title
+- ✅ Loading and empty state
+  - Issue: https://github.com/hernanymotoso/book-manager-front/issues/1
+    
+- ✅ SignIn/SignOut
+- ✅ Register
+- ✅ Profile
+- ✅ Save authenticated user into cookies and send through api request
+  - Issue: https://github.com/hernanymotoso/book-manager-front/issues/3
+  - Issue: https://github.com/hernanymotoso/book-manager-front/issues/2
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
