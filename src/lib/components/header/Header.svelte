@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { goto, invalidateAll } from '$app/navigation'
+  import { goto } from '$app/navigation'
   import { Wrapper } from '$lib/components'
   import type { UserAuthenticated } from '$lib/models/user'
   import { cookieHelpers } from '$lib/utils'
@@ -8,18 +8,17 @@
 
   async function handleSignOut() {
     document.cookie = `${cookieHelpers.keys.authUser}=; path=/; max-age=0`
-    await invalidateAll()
-    goto('/', { replaceState: true })
+    goto('/', { invalidateAll: true })
   }
 </script>
 
 <header class="w-full bg-gray-800 shadow">
   <Wrapper>
     <div class="mx-auto flex items-center justify-between">
-      <div class="flex items-center space-x-2">
+      <button class="flex cursor-pointer items-center space-x-2" on:click={() => goto('/', { invalidateAll: true })}>
         <img src="/favicon.svg" alt="Logo" class="h-8 w-8" />
         <span class="text-xl font-bold text-white">Book Manager</span>
-      </div>
+      </button>
 
       <div class="flex items-center space-x-4">
         {#if user}
