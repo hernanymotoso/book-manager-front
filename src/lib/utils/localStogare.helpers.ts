@@ -1,6 +1,5 @@
 const localStorageKeys = {
-  users: '@book-manager_users',
-  authUser: '@book-manager_authUser'
+  users: '@book-manager_users'
 } as const
 
 type LocalStorageKey = (typeof localStorageKeys)[keyof typeof localStorageKeys]

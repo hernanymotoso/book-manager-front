@@ -3,7 +3,7 @@
 
   import { goto } from '$app/navigation'
   import { Wrapper } from '$lib/components'
-  import { localStorageHelper, generateRandomString } from '$lib/utils'
+  import { localStorageHelper, generateRandomString, cookieHelpers } from '$lib/utils'
   import toast from 'svelte-french-toast'
 
   let name = ''
@@ -32,7 +32,9 @@
     const user = { id: generateRandomString(), name, email, password, token: generateRandomString() }
     users.push(user)
     localStorageHelper.save('@book-manager_users', users)
-    document.cookie = `authUser=${encodeURIComponent(JSON.stringify({ ...user, password: null }))}; path=/; max-age=${60 * 60 * 24 * 7}`
+
+    const cookieAge = 60 * 60 * 24 * 7
+    document.cookie = `${cookieHelpers.keys.authUser}=${encodeURIComponent(JSON.stringify({ ...user, password: null }))}; path=/; max-age=${cookieAge}`
 
     success = 'User created successfully!'
     name = ''
