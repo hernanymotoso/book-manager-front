@@ -1,20 +1,16 @@
 <script lang="ts">
-  import { Wrapper, BookCardList, CreateBookDrawer } from '$lib/components'
+  import { Wrapper, BookCardList, CreateBookDrawer, Spinner } from '$lib/components'
+  import { filterBooks } from '$lib/utils/book.helpers'
   import type { ActionData, PageData } from './$types'
 
   export let data: PageData
   export let form: ActionData
 
-  $: books = data.fetchedBooks
-
-  //TODO: Refactor
   let search = ''
   let isDrawerOpen = false
 
-  $: filteredBooks =
-    search.trim().length === 0
-      ? books
-      : books.filter(book => book.title.toLowerCase().includes(search.trim().toLowerCase()))
+  let booksPromise
+  $: booksPromise = Promise.resolve(data.fetchedBooks)
 
   function handleSearch(event: Event) {
     search = (event.target as HTMLInputElement).value
@@ -26,7 +22,6 @@
 
   <div class="mb-6 flex flex-col items-stretch justify-between gap-4 sm:flex-row sm:items-center">
     <div class="flex-1">
-      <!-- TODO: refactor: move to own component -->
       <input
         type="text"
         placeholder="Search book..."
@@ -37,7 +32,6 @@
       />
     </div>
 
-    <!-- TODO: move to own component -->
     <button
       class="rounded bg-blue-600 px-6 py-2 font-semibold text-white transition hover:bg-blue-700"
       on:click={() => (isDrawerOpen = true)}
@@ -46,7 +40,17 @@
     </button>
   </div>
 
-  <BookCardList books={filteredBooks} />
+  {#await booksPromise}
+    <div class="flex justify-center py-8">
+      <Spinner />
+    </div>
+  {:then books}
+    {#if filterBooks(books, search).length === 0}
+      <div class="w-full py-8 text-center text-gray-400">No data found</div>
+    {:else}
+      <BookCardList books={filterBooks(books, search)} />
+    {/if}
+  {/await}
 
   <CreateBookDrawer {form} isOpen={isDrawerOpen} handleClose={() => (isDrawerOpen = false)} />
 </Wrapper>
