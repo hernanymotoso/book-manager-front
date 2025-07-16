@@ -1,5 +1,7 @@
 import { books } from '$lib/server/services/http/books/index.js'
 import { fail } from '@sveltejs/kit'
+import type { PageServerLoad } from './$types.js'
+
 export const actions = {
   saveBook: async ({ request }) => {
     const formData = await request.formData()
@@ -14,3 +16,7 @@ export const actions = {
   }
 }
 
+export const load: PageServerLoad = async () => {
+  const fetchedBooks = (await books.load()) || []
+  return { fetchedBooks }
+}
