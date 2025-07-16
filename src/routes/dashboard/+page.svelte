@@ -5,7 +5,7 @@
   export let data: PageData
   export let form: ActionData
 
-  const books = data.fetchedBooks
+  $: books = data.fetchedBooks
 
   //TODO: Refactor
   let search = ''
