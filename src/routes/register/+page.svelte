@@ -94,7 +94,7 @@
 
       <button
         type="submit"
-        class="mt-4 w-full rounded bg-blue-600 px-6 py-2 font-semibold text-white transition hover:bg-blue-700"
+        class="mt-4 w-full cursor-pointer rounded bg-blue-600 px-6 py-2 font-semibold text-white transition hover:bg-blue-700"
         >Register</button
       >
       {#if error}
