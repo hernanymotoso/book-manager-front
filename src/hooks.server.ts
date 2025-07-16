@@ -15,17 +15,12 @@ export async function handle({ event, resolve }) {
     event.locals.user = null
   }
 
-  if (event.url.pathname === '/dashboard' && !event.locals?.user) {
-    throw redirect(303, '/')
-  }
+  const path = event.url.pathname
+  const isPublicPath = path === '/' || path === '/register'
+  const user = event.locals?.user
 
-  if (event.url.pathname === '/' && event.locals?.user) {
-    throw redirect(303, '/dashboard')
-  }
-
-  if (event.url.pathname === '/register' && event.locals?.user) {
-    throw redirect(303, '/dashboard')
-  }
+  if (isPublicPath && user) throw redirect(303, '/dashboard')
+  if (!isPublicPath && !user) throw redirect(303, '/')
 
   return await resolve(event)
 }
