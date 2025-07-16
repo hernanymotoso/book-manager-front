@@ -7,12 +7,12 @@ type CreateBookDTO = {
 }
 
 export const books = {
-  create: async (dto: CreateBookDTO) => {
-    const response = await api.post<BookModel>('/books', dto, { headers: { 'x-access-token': 'asdf' } })
+  create: async (dto: CreateBookDTO, authToken: string) => {
+    const response = await api.post<BookModel>('/books', dto, { headers: { 'x-access-token': authToken } })
     return response.data
   },
-  load: async () => {
-    const response = await api.get<BookModel[]>('/books', { headers: { 'x-access-token': 'asdf' } })
+  load: async (authToken: string) => {
+    const response = await api.get<BookModel[]>('/books', { headers: { 'x-access-token': authToken } })
     return response.data
   }
 }
