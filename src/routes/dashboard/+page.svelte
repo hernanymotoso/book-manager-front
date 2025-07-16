@@ -19,16 +19,14 @@
   function handleSearch(event: Event) {
     search = (event.target as HTMLInputElement).value
   }
-
-  console.log({ data, form })
 </script>
 
 <Wrapper>
   <h1 class="mb-6 text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl">Books</h1>
 
-  <!-- Page header -->
   <div class="mb-6 flex flex-col items-stretch justify-between gap-4 sm:flex-row sm:items-center">
     <div class="flex-1">
+      <!-- TODO: refactor: move to own component -->
       <input
         type="text"
         placeholder="Search book..."
@@ -39,6 +37,7 @@
       />
     </div>
 
+    <!-- TODO: move to own component -->
     <button
       class="rounded bg-blue-600 px-6 py-2 font-semibold text-white transition hover:bg-blue-700"
       on:click={() => (isDrawerOpen = true)}
