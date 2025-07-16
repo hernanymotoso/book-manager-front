@@ -1,6 +1,7 @@
 <script lang="ts">
+  import type { BookModel } from '$lib/models/book'
   import BookCard from '../book-card/BookCard.svelte'
-  export let books: { id: string; title: string; author: string; createdAt: number }[] = []
+  export let books: BookModel[] = []
 </script>
 
 <div
