@@ -11,7 +11,7 @@
 </script>
 
 <div
-  class="flex max-w-[220px] flex-col gap-2 rounded-lg border border-gray-700 bg-gray-800 p-4 shadow
+  class="flex min-w-[220px] flex-col gap-2 rounded-lg border border-gray-700 bg-gray-800 p-4 shadow
     transition-all duration-200 hover:-translate-y-2 hover:shadow-xl"
 >
   <h2 class="text-xl font-bold text-white">{book.title}</h2>
