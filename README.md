@@ -35,6 +35,8 @@ The application will be available at `http://localhost:5173`.
 ## Features/Progress
 [Project Book Manager Front-end](https://github.com/users/hernanymotoso/projects/8)
 
+[Live version](https://book-manager-front-plum.vercel.app/)
+
 
 - ✅ Dashboard - load books
 - ✅ Create book
