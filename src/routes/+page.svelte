@@ -38,13 +38,11 @@
     success = 'SignIn successfully!'
     email = ''
     password = ''
-
-    await invalidateAll()
   }
 
   $: if (success) {
     toast.success(success)
-    setTimeout(() => goto('/dashboard', { replaceState: true }), 1200)
+    setTimeout(() => goto('/dashboard', { invalidateAll: true }), 1200)
   }
 </script>
 
