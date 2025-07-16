@@ -19,7 +19,7 @@
     }
   }
 
-  if (form?.success) handleClose()
+  $: if (form?.success) handleClose()
 </script>
 
 {#if isOpen}
