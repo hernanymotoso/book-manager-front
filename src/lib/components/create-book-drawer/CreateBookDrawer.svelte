@@ -24,7 +24,6 @@
 </script>
 
 {#if isOpen}
-  <!-- Overlay -->
   <div class="fixed inset-0 z-40 bg-black/50 transition-opacity" on:click={handleClose}></div>
 
   <aside
@@ -35,7 +34,8 @@
     <div class="flex items-center justify-between border-b border-gray-700 p-6">
       <h2 class="text-2xl font-bold">New book</h2>
 
-      <button class="text-2xl text-gray-400 hover:text-white" on:click={handleClose} aria-label="Fechar">&times;</button
+      <button class="cursor-pointer text-2xl text-gray-400 hover:text-white" on:click={handleClose} aria-label="Fechar"
+        >&times;</button
       >
     </div>
 
@@ -72,14 +72,14 @@
         <button
           disabled={isLoading}
           type="button"
-          class="w-[120px] rounded bg-gray-700 px-6 py-2 text-white hover:bg-gray-600"
+          class="w-[120px] cursor-pointer rounded bg-gray-700 px-6 py-2 text-white hover:bg-gray-600"
           on:click={handleClose}>Cancel</button
         >
 
         <button
           disabled={isLoading}
           type="submit"
-          class="w-[120px] rounded bg-blue-600 px-6 py-2 font-semibold text-white transition hover:bg-blue-700"
+          class="w-[120px] cursor-pointer rounded bg-blue-600 px-6 py-2 font-semibold text-white transition hover:bg-blue-700"
         >
           {#if isLoading}
             <Spinner />

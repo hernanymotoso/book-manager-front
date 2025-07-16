@@ -4,10 +4,7 @@
   export let books: BookModel[] = []
 </script>
 
-<div
-  class="grid justify-items-center gap-4 lg:justify-items-start"
-  style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));"
->
+<div class="grid w-full gap-6 sm:grid-cols-2 md:grid-cols-3">
   {#each books as book (book.id)}
     <BookCard {book} />
   {/each}
