@@ -4,6 +4,7 @@
   import type { ActionData } from '../../../routes/dashboard/$types'
 
   import { Spinner } from '$lib/components'
+  import { fly } from 'svelte/transition'
 
   export let isOpen: boolean
   export let form: ActionData
@@ -27,6 +28,8 @@
   <div class="fixed inset-0 z-40 bg-black/50 transition-opacity" on:click={handleClose}></div>
 
   <aside
+    in:fly={{ x: 400, duration: 300 }}
+    out:fly={{ x: 400, duration: 300 }}
     class="fixed top-0 right-0 z-50 h-full w-full max-w-md translate-x-0 transform bg-gray-800 text-white shadow-xl transition-transform duration-300"
   >
     <div class="flex items-center justify-between border-b border-gray-700 p-6">
