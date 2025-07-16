@@ -1,2 +1,6 @@
 export { default as Header } from './header/Header.svelte'
 export { default as Wrapper } from './wrapper/Wrapper.svelte'
+export { default as BookCard } from './book-card/BookCard.svelte'
+export { default as BookCardList } from './book-card-list/BookCardList.svelte'
+export { default as CreateBookDrawer } from './create-book-drawer/CreateBookDrawer.svelte'
+export { default as Spinner } from './spinner/Spinner.svelte'
