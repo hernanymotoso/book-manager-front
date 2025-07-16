@@ -1,8 +1,9 @@
 import type { UserAuthenticated } from '$lib/models/user'
+import { cookieHelpers } from '$lib/utils'
 import { redirect } from '@sveltejs/kit'
 
 export async function handle({ event, resolve }) {
-  const authUser = event.cookies.get('authUser')
+  const authUser = event.cookies.get(cookieHelpers.keys.authUser)
 
   if (authUser) {
     try {
