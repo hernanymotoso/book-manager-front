@@ -1,6 +1,9 @@
 <script lang="ts">
-  export let book: { id: string; title: string; author: string; createdAt: number }
+  import type { BookModel } from '$lib/models/book'
 
+  export let book: BookModel
+
+  //TODO: move this to a date helper
   function formatDate(dateStr: number) {
     const date = new Date(dateStr)
     return date.toLocaleDateString()
@@ -9,7 +12,7 @@
 
 <div
   class="flex max-w-[220px] flex-col gap-2 rounded-lg border border-gray-700 bg-gray-800 p-4 shadow
-         transition-all duration-200 hover:-translate-y-2 hover:shadow-xl"
+    transition-all duration-200 hover:-translate-y-2 hover:shadow-xl"
 >
   <h2 class="text-xl font-bold text-white">{book.title}</h2>
 
