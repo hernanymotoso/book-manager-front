@@ -83,7 +83,7 @@
         <button
           disabled={isLoading}
           type="submit"
-          class="w-[120px] cursor-pointer rounded bg-blue-600 px-6 py-2 font-semibold text-white transition hover:bg-blue-700"
+          class="flex w-[120px] cursor-pointer items-center justify-center rounded bg-blue-600 px-6 py-2 font-semibold text-white transition hover:bg-blue-700"
         >
           {#if isLoading}
             <Spinner />
