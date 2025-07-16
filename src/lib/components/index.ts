@@ -1,2 +1,3 @@
 export { default as Header } from './header/Header.svelte'
 export { default as Wrapper } from './wrapper/Wrapper.svelte'
+export { default as BookCard } from './book-card/BookCard.svelte'
